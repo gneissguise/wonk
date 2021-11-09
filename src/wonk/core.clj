@@ -56,6 +56,7 @@
 
 (defn pred-conj [p coll n]
   (if p (conj coll n) coll))
+
 (defn filter-seq-node [nodes]
   (loop [[n & more] nodes
          rtn []]
@@ -69,6 +70,7 @@
 (defn =>? [n]
   (and (token-node? n)
        (= (:string-value n) "=>")))
+
 (defn validate-rule [node]
   (let [invalid-nodes #(or (token-node? %) (string-node? %))
         children (drop-while invalid-nodes (:children my-node))
